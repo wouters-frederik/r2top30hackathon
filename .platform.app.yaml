@@ -21,8 +21,8 @@ relationships:
 # The hooks that will be triggered when the package is deployed.
 hooks:
     # Build hooks can modify the application files on disk but not access any services like databases.
-    build: |
-      rm web/app_dev.php
+    #build: |
+    #  rm web/app_dev.php
     # Deploy hooks can access services but the file system is now read-only.
     deploy: |
       app/console --env=prod cache:clear
