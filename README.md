@@ -9,5 +9,5 @@ radio2 top30 hackathon
 
 # Requirements
 - code op github (goed voor developer online CV)
-- easy accessible voor supersnelle easy hosting (quick and dirty)?
+- easy accessible voor supersnelle easy hosting (quick)?
 - outside input mogelijk (fork/pull request/...)
