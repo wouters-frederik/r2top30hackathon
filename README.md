@@ -7,3 +7,7 @@ radio2 top30 hackathon
 - Wireframe(s) maken?
 - Swarmen?
 
+# Requirements
+- code op github (goed voor developer online CV)
+- easy accessible voor supersnelle easy hosting (quick and dirty)?
+- outside input mogelijk (fork/pull request/...)
