@@ -1,6 +1,6 @@
 "https://{default}/":
   type: upstream
-  upstream: "app:http"
+  upstream: "r2top30hackathon:php"
 "https://www.{default}/":
   type: redirect
   to: "https://{default}/"
