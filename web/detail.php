@@ -68,6 +68,7 @@ $user['birthday'] = date('d / m / Y', $user['geboortedatum']);
         $pos = 0;
         ?>
         <?php $hitlijst = getHitlijstData('lists?parent_lid=840');?>
+        <?php $hitlijst->$pos->lid = 841;?>
         <?php $aftellijst = getHitlijstData('lists/' . $hitlijst->$pos->lid);?>
         <?php $first_song = $aftellijst->songs[0];?>
         <?php echo '<div class="songname-artist">';?>
@@ -77,13 +78,28 @@ $user['birthday'] = date('d / m / Y', $user['geboortedatum']);
         <?php echo '</div>';?>
         <div class="mainvideobox"><iframe class="mainvideo" src="https://www.youtube.com/embed/x76VEPXYaI0" frameborder="0" allowfullscreen></iframe></div>
 
-        <center><img src="http://hv.persgroep.be/hv/web/hln/papers/<?php echo $krantdate;?>/HIGHRES"></center>
-        <?php echo 'Geboortedatum '.$user['birthday'] . '<br>';?>
-        <?php echo 'Name '.$user['name'] . '<br>';?>
 
-        
+
+        </div>
+      <div class="row content">
+        <h2>Dit was de voorpagina op <?php echo $user['birthday']; ?>.
+        <center><img src="http://hv.persgroep.be/hv/web/hln/papers/<?php echo $krantdate;?>/HIGHRES"></center>
+
         <?php echo 'Op 1 in ' . $aftellijst->data->name . ' van ' . date('d m Y',$aftellijst->data->air_date) . '<br>';?>
         <?php echo $first_song->title .' - ' . $first_song->name;?>
+
+
+          <?php
+  echo '<ol>';
+          foreach($aftellijst->songs as $song) {
+            //var_dump($song);
+            echo '<li>'.$song->title . ' - ' .$song->name. '</li>';
+          }
+          echo '</ol>';
+          ?>
+
+
+
       </div>
       
     </div>
