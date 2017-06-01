@@ -75,9 +75,7 @@ $user['birthday'] = date('d / m / Y', $user['geboortedatum']);
         <?php echo '<div class="mainvideobox"><iframe class="mainvideo" src="https://www.youtube.com/embed/x76VEPXYaI0" frameborder="0" allowfullscreen></iframe></div>';?>
         <?php echo 'Geboortedatum '.$user['birthday'] . '<br>';?>
         <?php echo 'Name '.$user['name'] . '<br>';?>
-        
-        
-        
+
         
         <?php echo 'Op 1 in ' . $aftellijst->data->name . ' van ' . date('d m Y',$aftellijst->data->air_date) . '<br>';?>
         <?php echo $first_song->title .' - ' . $first_song->name;?>
