@@ -77,31 +77,21 @@ $user['birthday'] = date('d / m / Y', $user['geboortedatum']);
           <small>stond op 1 in de Radio 2 Top 30 op de dag dat jij geboren bent!</small>
         <?php echo '</div>';?>
         <div class="mainvideobox"><iframe class="mainvideo" src="https://www.youtube.com/embed/x76VEPXYaI0" frameborder="0" allowfullscreen></iframe></div>
-
-
-
-        </div>
-      <div class="row content">
-        <h2>Dit was de voorpagina op <?php echo $user['birthday']; ?>.
-        <center><img src="http://hv.persgroep.be/hv/web/hln/papers/<?php echo $krantdate;?>/HIGHRES"></center>
-
-        <?php echo 'Op 1 in ' . $aftellijst->data->name . ' van ' . date('d m Y',$aftellijst->data->air_date) . '<br>';?>
-        <?php echo $first_song->title .' - ' . $first_song->name;?>
-
-
-          <?php
-  echo '<ol>';
-          foreach($aftellijst->songs as $song) {
-            //var_dump($song);
-            echo '<li>'.$song->title . ' - ' .$song->name. '</li>';
-          }
-          echo '</ol>';
-          ?>
-
-
-
       </div>
-      
+      <div class="row content-bottom">
+        <div class="content-bottom-left">
+          <h2>Dit was de voorpagina op <?php echo $user['birthday']; ?></h2>
+          <img src="http://hv.persgroep.be/hv/web/hln/papers/<?php echo $krantdate;?>/HIGHRES">
+        </div>
+        <div class="content-bottom-right">
+          <h2 class="sidebar--title">De Radio 2 Top 30 op <?php echo $user['birthday']; ?></h2>
+          <?php echo '<ol>';
+            foreach($aftellijst->songs as $song) {
+              echo '<li>'.$song->title . ' - ' .$song->name. '</li>';
+            }
+            echo '</ol>';?>
+        </div>
+      </div>
     </div>
   </body>
 
