@@ -63,6 +63,8 @@ $dbh = new PDO($dsn, $username, $password, $options);
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
+$cur_url = 'https://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+
 
 //
 function getHitlijstData($apicall){
