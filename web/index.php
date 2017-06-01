@@ -1,3 +1,3 @@
 <?php
 
-echo 'hack away';
+echo 'gooi away';
