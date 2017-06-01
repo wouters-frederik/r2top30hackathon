@@ -60,6 +60,7 @@ $options = array(
 );
 
 $dbh = new PDO($dsn, $username, $password, $options);
+$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
 

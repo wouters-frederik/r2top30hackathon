@@ -5,9 +5,7 @@ jQuery(document).ready(function($){
 
     });
 
-    console.log('koekoek');
-    $('.input1').change(function(){
-        console.log('inp');
-        $('.inputname').html($('.input1').val());
-    })
+    $('#name').change(function(){
+        $('.inputname').html($('#name').val());
+    });
 });
