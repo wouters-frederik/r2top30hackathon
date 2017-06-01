@@ -7,5 +7,9 @@
 //}
 //redirect to detail.php?id=num&name=fred
 
+
+var_dump($_POST);
+
+die('POSTING');
 header("Location: /detail.php?id=" . $id . '&name=' . $name);
 die();

@@ -32,10 +32,10 @@ header("Pragma: no-cache");
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <form id="mainform" role="form">
+                    <form id="mainform" role="form" action="save.php" METHOD="POST">
                         <fieldset class="form-group">
                             <label for="input1">Hallo! Wat is je naam?</label>
-                            <input type="text" class="form-control" id="input1" />
+                            <input type="text" class="form-control" id="name" name="name" />
                         </fieldset>
                         <fieldset class="form-group">
                             <label for="input2">Dag <span class="inputname"></span>, in welk jaar ben je geboren?</label>
@@ -43,11 +43,16 @@ header("Pragma: no-cache");
                         </fieldset>
                         <fieldset class="form-group">
                             <label for="input3">En in welke maand?</label>
-                            <input type="text" class="form-control" id="input3" />
+                            <select class="form-control"  id="maand" name="maand" >
+                              <option value="11">November</option>
+                            </select>
                         </fieldset>
                         <fieldset class="form-group">
                             <label for="input4">Welke dag?</label>
-                            <input type="text" class="form-control" id="input4" />
+                            <select class="form-control" id="dag" name="dag">
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                            </select>
                         </fieldset>
                         <button id="submitbutton" type="submit" class="btn btn-default">Indienen</button>
                     </form>
