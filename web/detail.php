@@ -147,9 +147,9 @@ $first_song = $aftellijst->songs[0];
 
       echo $song->title . ' - ' . $song->name;
 
-      if(!empty($song->audio_url)) {
-        echo '<audio controls><source src="'. $song->audio_url.'" type="audio/mpeg">Your browser does not support the audio element.</audio>';
-      }
+//      if(!empty($song->audio_url)) {
+//        echo '<audio controls><source src="'. $song->audio_url.'" type="audio/mpeg">Your browser does not support the audio element.</audio>';
+//      }
 
       if (!empty($song->spotify_id)) {
         echo ' -  <a href="' . $song->spotify_id . '">Spotify</a>';
@@ -159,6 +159,10 @@ $first_song = $aftellijst->songs[0];
       }
       if (!empty($song->youtube_url)) {
         echo ' <a href="' . $song->youtube_url . '">Youtube</a>';
+      }
+      if(!empty($song->youtube_url)) {
+        echo '<div><iframe class="mainvideo" src="'. $song->youtube_url. '"
+                frameborder="0" allowfullscreen></iframe></div>';
       }
 
       echo '</li>';
