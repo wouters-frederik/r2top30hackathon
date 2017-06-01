@@ -13,11 +13,11 @@ header("Pragma: no-cache");
 		<title>R2Hackathon</title>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	    <meta name="description" content="Demo project with jQuery">
+    <meta name="description" content="Demo project with jQuery">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
-        <link rel="stylesheet" href="css/top30.css">
+    <link rel="stylesheet" href="css/top30.css">
 	</head>
 	<body>
 		<div class="container">
@@ -54,7 +54,9 @@ header("Pragma: no-cache");
                 </div>
             </div>
         </div>
-		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
 		<script src="js/formToWizard.js"></script>
 		<script src="js/top30.js"></script>
 	</body>

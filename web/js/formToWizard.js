@@ -7,7 +7,7 @@
         var element = this;
 
         var steps = $(element).find("> fieldset");
-        var count = steps.size();
+        var count = steps.length;
         var submmitButtonName = options.submitButton;
         $(submmitButtonName).hide();
 
