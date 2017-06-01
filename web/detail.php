@@ -97,6 +97,7 @@ if(isset($_GET['share'])) {
   </div>
 
   <div class="row content">
+
     <?php echo '<div class="songname-artist">'; ?>
     <?php echo '<div class="songname">' . $first_song->title . '</div>'; ?>
     <?php echo '<div class="artist">van ' . $first_song->name . '</div>'; ?>
