@@ -143,8 +143,8 @@ if(isset($_GET['share'])) {
     ?>
 
 
-    <center><?php echo '<a href="https://www.facebook.com/sharer/sharer.php?u=' . urlencode($cur_url) . '&share=fb">Deel op Facebook</a>'; ?></center>
-    <center>
+    <center class="fbsharebox"><?php echo '<a href="https://www.facebook.com/sharer/sharer.php?u=' . urlencode($cur_url) . '&share=fb">Deel op Facebook</a>'; ?></center>
+    <center class="olderbox">
       <form METHOD="GET" ACTION="/older.php" >
         Wat stond er op 1 toen <?php echo $hijzij; ?>
         <input type="hidden" name="id" value="<?php echo $_GET['id'];?>">
@@ -157,7 +157,7 @@ if(isset($_GET['share'])) {
         <option>50</option>
       </select>
       was?
-        <input type="submit" value="Ontdet het hier">
+        <input type="submit" value="Ontdek het hier">
       </form>
     </center>
       <?php

@@ -75,6 +75,29 @@ fieldset > .stepbox--nav {
     color: #808080;
     float: left; }
 
+.fbsharebox {
+  margin: 0 0 30px; }
+  .fbsharebox a {
+    background: #3b5998;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 20px;
+    transition: all .3s; }
+    .fbsharebox a:hover {
+      text-decoration: none;
+      background: #03C9A9; }
+
+.olderbox {
+  margin: 0 0 30px;
+  padding: 30px;
+  background: orange;
+  font-size: 20px; }
+  .olderbox .oldersubmit {
+    margin: 30px 0 0;
+    border: 0;
+    box-shadow: none;
+    background: #fff; }
+
 .detail .row.content {
   position: relative; }
   .detail .row.content > * {
@@ -96,27 +119,6 @@ fieldset > .stepbox--nav {
       font-size: 20px; }
     .detail .row.content-bottom .content-bottom-right ol {
       padding-left: 20px; }
-.detail .fbsharebox {
-  margin: 0 0 30px; }
-  .detail .fbsharebox a {
-    background: #3b5998;
-    padding: 10px 20px;
-    color: #fff;
-    font-size: 20px;
-    transition: all .3s; }
-    .detail .fbsharebox a:hover {
-      text-decoration: none;
-      background: #03C9A9; }
-.detail .olderbox {
-  margin: 0 0 30px;
-  padding: 30px;
-  background: orange;
-  font-size: 20px; }
-  .detail .olderbox .oldersubmit {
-    margin: 30px 0 0;
-    border: 0;
-    box-shadow: none;
-    background: #fff; }
 .detail .songname-artist {
   background: #ccc;
   padding: 50px;
