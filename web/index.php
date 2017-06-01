@@ -13,7 +13,7 @@ header("Pragma: no-cache");
 		<title>R2Hackathon</title>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	    <meta name="description" content="Demo project with jQuery">
+	    <meta name="description" content="De top 3 op jouw achtiende verjaardag?">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
