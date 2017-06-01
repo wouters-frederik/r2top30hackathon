@@ -30,6 +30,7 @@ $hitlijst = getHitlijstData('lists?parent_lid=3288&air_date_from='.$from.'&air_d
 $pos = 0;
 $aftellijst = getHitlijstData('lists/' . $hitlijst->$pos->lid);
 $first_song = $aftellijst->songs[0];
+//var_dump($first_song->youtube_url);
 
 
 ?>
@@ -71,7 +72,7 @@ $first_song = $aftellijst->songs[0];
           <?php echo '<div class="artist">van ' . $first_song->name . '</div>';?>
           <small>stond op 1 in de Radio 2 Top 30 op de dag dat jij geboren bent!</small>
         <?php echo '</div>';?>
-        <div class="mainvideobox"><iframe class="mainvideo" src="https://www.youtube.com/embed/x76VEPXYaI0" frameborder="0" allowfullscreen></iframe></div>
+        <div class="mainvideobox"><iframe class="mainvideo" src="<?php echo $first_song->youtube_url; ?>" frameborder="0" allowfullscreen></iframe></div>
 
 
 
