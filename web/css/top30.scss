@@ -184,3 +184,18 @@ fieldset {
     }
   }
 }
+
+@media screen and (max-width: 600px) {
+  .detail .row.content-bottom {
+    display: flex;
+    flex-flow: column nowrap;
+    .content-bottom-left {
+      width: 100%;
+      margin: 0 0 30px;
+    }
+    .content-bottom-right {
+      width: 100%;
+      margin: 0;
+    }
+  } 
+}
