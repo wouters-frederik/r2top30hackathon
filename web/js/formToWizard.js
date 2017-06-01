@@ -54,8 +54,11 @@
 
             $("#" + stepName + "commands").prev().on("keydown", function (e) {
                 if (e.keyCode == 13) {
-                    console.log('index',i);
-                    $("#step" + i + "Next").trigger('click');
+                    if (i + 1 == count) {
+                        $("#submitbutton").trigger('click');
+                    } else {
+                        $("#step" + i + "Next").trigger('click');
+                    }
                     return false;
                 }
             });
@@ -78,6 +81,7 @@
         function selectStep(i) {
             $("#steps li").removeClass("current");
             $("#stepDesc" + i).addClass("current");
+            $('input,select').focus();
         }
 
     }

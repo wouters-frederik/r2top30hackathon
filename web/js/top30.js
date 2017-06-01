@@ -9,12 +9,7 @@ jQuery(document).ready(function($){
         $('.inputname').html($('#name').val());
     });
 
-    $('#mainform input,#mainform select').keydown(function (e) {
-        if (e.keyCode == 13) {
-            e.preventDefault();
-            $
-            return false;
+    $('.index fieldset input').focus();
 
-        }
-    });
+    
 });
