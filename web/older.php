@@ -37,6 +37,14 @@ $first_song = $aftellijst->songs[0];
 //var_dump($first_song->youtube_url);
 
 
+if(isset($_GET['share'])) {
+  $title = 'De '.$leeftijd.'ste verjaardag van '. $user['name'];
+  $hijzij = $user['name'];
+}else{
+  $title = 'Op jouw '.$leeftijd.'e verjaardag';
+  $hijzij = 'je';
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -60,8 +68,8 @@ $first_song = $aftellijst->songs[0];
   <div class="row header-top">
     <div class="datum"><?php echo $user['birthday']; ?></div>
     <?php echo '<div>'; ?>
-    <?php echo '<a href="https://www.facebook.com/sharer/sharer.php?u=' . urlencode($cur_url) . '">Deel op Facebook</a>'; ?>
-    <?php echo '<a href="https://twitter.com/home?status=' . urlencode($cur_url) . '">Deel op Twitter</a>'; ?>
+    <?php echo '<a href="https://www.facebook.com/sharer/sharer.php?u=' . urlencode($cur_url) . '&share=fb">Deel op Facebook</a>'; ?>
+    <?php echo '<a href="https://twitter.com/home?status=' . urlencode($cur_url) . '&share=tw">Deel op Twitter</a>'; ?>
     <?php echo '</div>'; ?>
   </div>
   <div class="row header">
@@ -90,7 +98,8 @@ $first_song = $aftellijst->songs[0];
           fill="#404040"/>
       </g>
     </svg>
-    <?php echo '<a href="/"><h1>Op jouw '.$leeftijd.'e verjaardag  ' . $user['name'] . '</h1></a>'; ?>
+
+    <?php echo '<a href="/"><h1>' . $title . '</h1></a>'; ?>
   </div>
 
   <div class="row content">
@@ -128,23 +137,35 @@ $first_song = $aftellijst->songs[0];
 
     }
     ?>
-    <center><?php echo '<a href="https://www.facebook.com/sharer/sharer.php?u=' . urlencode($cur_url) . '">Deel op Facebook</a>'; ?></center>
-    <center>
-      <form METHOD="GET" ACTION="/older.php" >
-        Wat stond er op 1 toen je
-        <input type="hidden" name="id" value="<?php echo $_GET['id'];?>">
-        <select name="hoeveeljaar">
-          <option>16</option>
-          <option>18</option>
-          <option>20</option>
-          <option>30</option>
-          <option>40</option>
-          <option>50</option>
-        </select>
-        was?
-        <input type="submit" value="Ontdet het hier">
-      </form>
-    </center>
+    <?php
+    if(isset($_GET['share'])) { ?>
+      <a href="/">Ontdek jouw geboorteplaat!</a>
+      <?
+    }else{
+    ?>
+
+      <center><?php echo '<a href="https://www.facebook.com/sharer/sharer.php?u=' . urlencode($cur_url) . '&share=fb">Deel op Facebook</a>'; ?></center>
+      <center>
+        <form METHOD="GET" ACTION="/older.php" >
+          Wat stond er op 1 toen <?php echo $hijzij; ?>
+          <input type="hidden" name="id" value="<?php echo $_GET['id'];?>">
+          <select name="hoeveeljaar">
+            <option>16</option>
+            <option>18</option>
+            <option>20</option>
+            <option>30</option>
+            <option>40</option>
+            <option>50</option>
+          </select>
+          was?
+          <input type="submit" value="Ontdet het hier">
+        </form>
+      </center>
+
+
+      <?
+    }
+    ?>
 
 
   </div>
