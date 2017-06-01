@@ -1,4 +1,3 @@
-
 <?php
 
 include 'settings.php';
@@ -216,4 +215,4 @@ if(isset($_GET['share'])) {
 </div>
 </body>
 
-  
+
