@@ -64,6 +64,20 @@ fieldset > .stepbox--nav {
   .detail .row.content > * {
     display: flex;
     flex-flow: column nowrap; }
+.detail .songname-artist {
+  background: #ccc;
+  padding: 50px;
+  text-align: center;
+  margin: 0 0 30px; }
+  .detail .songname-artist .songname {
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    font-size: 50px;
+    margin: 25px 0 0; }
+  .detail .songname-artist .artist {
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px; }
 .detail .mainvideobox {
   margin: 0 0 30px;
   width: 100%;
