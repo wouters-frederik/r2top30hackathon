@@ -70,9 +70,10 @@ $user['birthday'] = date('d / m / Y', $user['geboortedatum']);
         <?php $first_song = $aftellijst->songs[0];?>
         <?php echo '<div class="songname-artist">';?>
           <?php echo '<div class="songname">' . $first_song->title . '</div>';?>
-          <?php echo '<div class="artist">' . $first_song->name . '</div>';?>
+          <?php echo '<div class="artist">van ' . $first_song->name . '</div>';?>
+          <small>stond op 1 in de Radio 2 Top 30 op de dag dat jij geboren bent!</small>
         <?php echo '</div>';?>
-        <?php echo '<div class="mainvideobox"><iframe class="mainvideo" src="https://www.youtube.com/embed/x76VEPXYaI0" frameborder="0" allowfullscreen></iframe></div>';?>
+        <div class="mainvideobox"><iframe class="mainvideo" src="https://www.youtube.com/embed/x76VEPXYaI0" frameborder="0" allowfullscreen></iframe></div>
         <?php echo 'Geboortedatum '.$user['birthday'] . '<br>';?>
         <?php echo 'Name '.$user['name'] . '<br>';?>
 
