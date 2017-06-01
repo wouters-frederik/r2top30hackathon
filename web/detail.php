@@ -23,7 +23,10 @@ echo 'Name '.$user['name'] . '<br>';
 $hitlijst = getHitlijstData('lists?parent_lid=840');
 //var_dump($hitlijst);
 $aftellijst = getHitlijstData('lists/301');
-var_dump($aftellijst->songs);
+$first_song = $aftellijst->songs[0];
+//var_dump($aftellijst->data->air_date);
+echo 'Op 1 in ' . $aftellijst->data->name . ' van ' . date('d m Y',$aftellijst->data->air_date) . '<br>';
+echo $first_song->title .' - ' . $first_song->name;
 
 //Load id
 // Render HTML
