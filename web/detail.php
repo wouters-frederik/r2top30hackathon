@@ -2,10 +2,13 @@
 
 include 'settings.php';
 
+if(!isset$_GET['id']){
+  $_GET['id'] = 0;
+}
 
 $sql = 'SELECT * FROM users where id = '.intval($_GET['id']).' limit 1';
 $user = false;
-foreach ($dbh->query($sql) as $row) {
+foreach ((array)$dbh->query($sql) as $row) {
   $user = $row;
 }
 
