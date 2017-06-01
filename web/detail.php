@@ -2,13 +2,13 @@
 
 include 'settings.php';
 
-if(!isset$_GET['id']){
+if(!isset($_GET['id'])){
   $_GET['id'] = 0;
 }
 
-$sql = 'SELECT * FROM users where id = '.intval($_GET['id']).' limit 1';
+$sql = 'SELECT * FROM users where id = ' . intval($_GET['id']) . ' limit 1';
 $user = false;
-foreach ((array)$dbh->query($sql) as $row) {
+foreach ($dbh->query($sql) as $row) {
   $user = $row;
 }
 
@@ -16,9 +16,12 @@ if ($user == false) {
   echo 'oei die persoon hebben we niet gevonden. <a href="index.php">Proef zelf eens van ons spelletje.</a>';
   die();
 }
-$user['birthday'] = date('d / m / Y',$user['geboortedatum']);
+
+$user['birthday'] = date('d / m / Y', $user['geboortedatum']);
 //no id = Oei, probeer het zelf eens
 // KNOP to frontpage.
+
+
 
 
 //echo Geboortedatum
