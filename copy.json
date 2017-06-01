@@ -1,0 +1,72 @@
+[
+    {
+        "id": "form__step1_1",
+        "value": "Hallo!"
+    },
+    {
+        "id": "form__step1_2",
+        "value": "Wat is je naam?"
+    },
+    {
+        "id": "form__step2_1",
+        "value": "Dag {naam}"
+    },
+    {
+        "id": "form__step2_2",
+        "value": "Wat is je geboortejaar?"
+    },
+    {
+        "id": "form__step3_1",
+        "value": "Welke maand?"
+    },
+    {
+        "id": "form__step4_1",
+        "value": "De hoeveelste?"
+    },
+    {
+        "id": "waiting",
+        "value": "Eventjes geduld..."
+    },
+    {
+        "id": "resultaat__title",
+        "value": "{songtitel} van {artiest}"
+    },
+    {
+        "id": "resultaat__subtitle",
+        "value": "stond op 1 in de Radio 2 Top 30 op de dag dat jij geboren werd."
+    },
+    {
+        "id": "resultaat__subtitle_shared",
+        "value": "stond op 1 in de Radio 2 Top 30 op de dag dat {naam} geboren werd."
+    },
+    {
+        "id": "resultaat__diy",
+        "value": "Ontdek jouw geboorteplaat"
+    },
+    {
+        "id": "restultaat__krant",
+        "value": "Dit waren de krantenkoppen op {dd/mm/yyyy}."
+    },
+    {
+        "id": "resultaat__sharecta",
+        "value": "Delen op Facebook"
+    },
+    {
+        "id": "IN_OUT"
+    },
+    {
+        "id": "share__title",
+        "value": "{songtitel} stond op 1 toen ik geboren werd. "
+    },
+    {
+        "id": "share__desc",
+        "value": "Ontdek ook jouw Radio 2 Top 30 geboorteplaat."
+    },
+    {
+        "id": "OUT_IN"
+    },
+    {
+        "id": "cta__title",
+        "value": "Welk nummer stond er op 1 in de Radio 2 Top 30 toen je geboren werd?"
+    }
+]

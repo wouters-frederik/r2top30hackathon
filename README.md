@@ -3,6 +3,8 @@ radio2 top30 hackathon
 
 # todo 
 - Testen opzetten
+- Json file toevoegen
+- Een extra test
 
 # Requirements
 - code op github (goed voor developer online CV)
