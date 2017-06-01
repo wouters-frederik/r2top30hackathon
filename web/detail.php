@@ -61,9 +61,14 @@ $user['birthday'] = date('d / m / Y', $user['geboortedatum']);
         <?php echo '<div>';?>
         <?php echo 'Geboortedatum '.$user['birthday'] . '<br>';?>
         <?php echo 'Name '.$user['name'] . '<br>';?>
-        <?php $hitlijst = getHitlijstData('lists?parent_lid=840');?>
-        <?php //var_dump($hitlijst);?>
-        <?php $aftellijst = getHitlijstData('lists/301');?>
+        <?php
+        $from = last_friday($user['geboortedatum']);
+        $to = strtotime('+ 6 days', $from);
+        $hitlijst = getHitlijstData('lists?parent_lid=872&air_date_from='.$from.'&air_date_to=' . $to);
+        $pos = 0;
+  var_dump($hitlijst->$pos->lid);
+        ?>
+        <?php $aftellijst = getHitlijstData('lists/' . $hitlijst->$pos->lid);?>
         <?php $first_song = $aftellijst->songs[0];?>
         <?php //var_dump($aftellijst->data->air_date);?>
         <?php echo 'Op 1 in ' . $aftellijst->data->name . ' van ' . date('d m Y',$aftellijst->data->air_date) . '<br>';?>
