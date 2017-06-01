@@ -61,7 +61,9 @@ $user['birthday'] = date('d / m / Y', $user['geboortedatum']);
       <div class="row content">
         <?php
         $from = last_friday($user['geboortedatum']);
+        $krantdate = date('Y/m/d',$user['geboortedatum']);
         $to = strtotime('+ 6 days', $from);
+
         $hitlijst = getHitlijstData('lists?parent_lid=872&air_date_from='.$from.'&air_date_to=' . $to);
         $pos = 0;
         ?>
@@ -74,6 +76,8 @@ $user['birthday'] = date('d / m / Y', $user['geboortedatum']);
           <small>stond op 1 in de Radio 2 Top 30 op de dag dat jij geboren bent!</small>
         <?php echo '</div>';?>
         <div class="mainvideobox"><iframe class="mainvideo" src="https://www.youtube.com/embed/x76VEPXYaI0" frameborder="0" allowfullscreen></iframe></div>
+
+        <center><img src="http://hv.persgroep.be/hv/web/hln/papers/<?php echo $krantdate;?>/HIGHRES"></center>
         <?php echo 'Geboortedatum '.$user['birthday'] . '<br>';?>
         <?php echo 'Name '.$user['name'] . '<br>';?>
 
