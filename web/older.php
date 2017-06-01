@@ -90,7 +90,7 @@ $first_song = $aftellijst->songs[0];
           fill="#404040"/>
       </g>
     </svg>
-    <?php echo '<a href="/"><h1>Het belang van ' . $user['name'] . '</h1></a>'; ?>
+    <?php echo '<a href="/"><h1>Op jouw '.$leeftijd.'e verjaardag  ' . $user['name'] . '</h1></a>'; ?>
   </div>
 
   <div class="row content">
@@ -129,19 +129,34 @@ $first_song = $aftellijst->songs[0];
     }
     ?>
     <center><?php echo '<a href="https://www.facebook.com/sharer/sharer.php?u=' . urlencode($cur_url) . '">Deel op Facebook</a>'; ?></center>
+    <center>
+      <form METHOD="GET" ACTION="/older.php" >
+        Wat stond er op 1 toen je
+        <input type="hidden" name="id" value="<?php echo $_GET['id'];?>">
+        <select name="hoeveeljaar">
+          <option>16</option>
+          <option>18</option>
+          <option>20</option>
+          <option>30</option>
+          <option>40</option>
+          <option>50</option>
+        </select>
+        was?
+        <input type="submit" value="Ontdet het hier">
+      </form>
+    </center>
 
 
   </div>
   <div class="row content">
-    <h2>Dit was de voorpagina op <?php echo $user['birthday']; ?>.</h2>
+    <h2>Dit was de voorpagina</h2>
     <center><img
         src="http://hv.persgroep.be/hv/web/hln/papers/<?php echo $krantdate; ?>/HIGHRES">
     </center>
   </div>
   <div class="row content">
 
-    <h2>Dit was de top 30
-      op <?php echo date('d M Y', $aftellijst->data->air_date); ?></h2>
+    <h2>Dit was de top 30</h2>
 
 
     <?php
