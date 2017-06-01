@@ -1,10 +1,5 @@
 default:
   suites:
-    default:
-      contexts:
-        - Behat\MinkExtension\Context\MinkContext
-        - FeatureContext
-        - behatch:context:browser
     R2TOP30:
       paths: [ %paths.base%/features/r2top30 ]
       contexts:
@@ -29,23 +24,23 @@ default:
       sessions:
         goutte:
           goutte: ~
-        bs_cr_desktop:
-          selenium2:
-            browser: chrome
-            wd_host: https://vrtnetsites1:dPzarnxjtqTHSWCtJ6s5@hub-cloud.browserstack.com/wd/hub
-            capabilities:
-              browser: chrome
-              browserName: chrome
-              extra_capabilities:
-                chromeOptions:
-                  args:
-                    - "--start-maximized"
         se_cr_desktop:
           selenium2:
             browser: chrome
             wd_host: http://localhost:4444/wd/hub
             capabilities:
               name: radio2
+              browser: chrome
+              browserName: chrome
+              extra_capabilities:
+                chromeOptions:
+                  args:
+                    - "--start-maximized"
+        bs_cr_desktop:
+          selenium2:
+            browser: chrome
+            wd_host: https://vrtnetsites1:dPzarnxjtqTHSWCtJ6s5@hub-cloud.browserstack.com/wd/hub
+            capabilities:
               browser: chrome
               browserName: chrome
               extra_capabilities:
