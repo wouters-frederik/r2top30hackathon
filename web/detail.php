@@ -174,7 +174,7 @@ if(isset($_GET['share'])) {
     </div>
     <div class="content-bottom-right">
 
-    <h2>Dit was de top 30
+    <h2 class="sidebar--title">Dit was de top 30
       op <?php echo date('d M Y', $aftellijst->data->air_date); ?></h2>
 
 
@@ -187,21 +187,7 @@ if(isset($_GET['share'])) {
         echo '<img src="' . $song->image_url . '">';
       }
 
-      echo $song->title . ' - ' . $song->name;
-
-//      if(!empty($song->audio_url)) {
-//        echo '<audio controls><source src="'. $song->audio_url.'" type="audio/mpeg">Your browser does not support the audio element.</audio>';
-//      }
-
-      if (!empty($song->spotify_id)) {
-        echo ' -  <a href="' . $song->spotify_id . '">Spotify</a>';
-      }
-      if (!empty($song->itunes_buy)) {
-        echo ' <a href="' . $song->itunes_buy . '">Itunes</a>';
-      }
-      if (!empty($song->youtube_url)) {
-        echo ' <a href="' . $song->youtube_url . '">Youtube</a>';
-      }
+      echo '<div class="sidebar--song">' . $song->title . '</div><div class="sidebar--artist">van ' . $song->name . '</div>';
       if(!empty($song->youtube_url)) {
         echo '<div><iframe class="mainvideo" src="'. $song->youtube_url. '"
                 frameborder="0" allowfullscreen></iframe></div>';

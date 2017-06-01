@@ -19,7 +19,7 @@ body {
     flex-flow: column nowrap;
     justify-content: center; }
 
-img {
+img, iframe {
   max-width: 100%;
   height: auto; }
 
@@ -118,7 +118,15 @@ fieldset > .stepbox--nav {
       margin: 0 0 20px;
       font-size: 20px; }
     .detail .row.content-bottom .content-bottom-right ol {
-      padding-left: 20px; }
+      padding-left: 0; }
+      .detail .row.content-bottom .content-bottom-right ol li {
+        margin: 0 0 15px; }
+      .detail .row.content-bottom .content-bottom-right ol .sidebar--song {
+        font-size: 20px; }
+      .detail .row.content-bottom .content-bottom-right ol .sidebar--artist {
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 1px; }
 .detail .songname-artist {
   background: #ccc;
   padding: 50px;
