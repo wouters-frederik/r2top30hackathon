@@ -34,7 +34,7 @@ header("Pragma: no-cache");
                 <div class="col-md-12">
                     <form id="mainform" role="form" action="save.php" METHOD="POST">
                         <fieldset class="form-group">
-                            <label for="input1">Hallo! Wat is je naam?</label>
+                            <label for="name">Hallo! Wat is je naam?</label>
                             <input type="text" class="form-control" id="name" name="name" />
                         </fieldset>
                         <fieldset class="form-group">
@@ -42,13 +42,13 @@ header("Pragma: no-cache");
                             <input type="text" class="form-control" id="input2" />
                         </fieldset>
                         <fieldset class="form-group">
-                            <label for="input3">En in welke maand?</label>
+                            <label for="maand">En in welke maand?</label>
                             <select class="form-control"  id="maand" name="maand" >
                               <option value="11">November</option>
                             </select>
                         </fieldset>
                         <fieldset class="form-group">
-                            <label for="input4">Welke dag?</label>
+                            <label for="dag">Welke dag?</label>
                             <select class="form-control" id="dag" name="dag">
                               <option value="1">1</option>
                               <option value="2">2</option>

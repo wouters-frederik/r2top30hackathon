@@ -5,7 +5,7 @@ jQuery(document).ready(function($){
 
     });
 
-    $('#input1').change(function(){
-        $('.inputname').html($('#input1').val());
+    $('#name').change(function(){
+        $('.inputname').html($('#name').val());
     });
 });
