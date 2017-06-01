@@ -72,24 +72,58 @@ $first_song = $aftellijst->songs[0];
           <?php echo '<div class="artist">van ' . $first_song->name . '</div>';?>
           <small>stond op 1 in de Radio 2 Top 30 op de dag dat jij geboren bent!</small>
         <?php echo '</div>';?>
-        <div class="mainvideobox"><iframe class="mainvideo" src="<?php echo $first_song->youtube_url; ?>" frameborder="0" allowfullscreen></iframe></div>
+
+        <?php
+        if(isset($first_song->youtube_url))
+        {?>
+          <div class="mainvideobox"><iframe class="mainvideo" src="<?php echo $first_song->youtube_url; ?>" frameborder="0" allowfullscreen></iframe></div>
+        <?php
+        }else{
+          if(isset($first_song->audio_url)) {
+            ?>
+            <audio controls>
+              <source src="<?php echo $first_song->audio_url; ?>" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+        <?php
+          }
+
+        }
+        ?>
+        <center><?php echo '<a href="https://www.facebook.com/sharer/sharer.php?u='. urlencode($cur_url).'">Deel op Facebook</a>';?></center>
+
+
 
 
 
         </div>
       <div class="row content">
-        <h2>Dit was de voorpagina op <?php echo $user['birthday']; ?>.
+        <h2>Dit was de voorpagina op <?php echo $user['birthday']; ?>.</h2>
         <center><img src="http://hv.persgroep.be/hv/web/hln/papers/<?php echo $krantdate;?>/HIGHRES"></center>
+      </div>
+      <div class="row content">
 
-        <?php echo 'Op 1 in ' . $aftellijst->data->name . ' van ' . date('d m Y',$aftellijst->data->air_date) . '<br>';?>
-        <?php echo $first_song->title .' - ' . $first_song->name;?>
+            <h2>Dit was de top 30 op <?php echo date('d M Y',$aftellijst->data->air_date); ?></h2>
+
+
 
 
           <?php
           echo '<ol>';
           foreach($aftellijst->songs as $song) {
+            //var_dump($first_song);
+            echo '<li>';
+            if (isset($first_song->image_url)) {
+              echo '<img src="'.$first_song->image_url.'">';
+            }
 
-            echo '<li>'.$song->title . ' - ' .$song->name. '</li>';
+            echo $song->title . ' - ' .$song->name;
+
+            echo ' -  <a href="'.$first_song->spotigy_id.'">Spotify</a>';
+            echo ' <a href="'.$first_song->itunes_buy.'">Itunes</a>';
+            echo ' <a href="'.$first_song->youtube_url.'">Youtube</a>';
+
+            echo '</li>';
           }
           echo '</ol>';
           ?>
