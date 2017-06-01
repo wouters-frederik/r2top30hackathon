@@ -60,14 +60,15 @@ $options = array(
 );
 
 $dbh = new PDO($dsn, $username, $password, $options);
+$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
 
 //
 function getHitlijstData($apicall){
   //https://hitlijst.vrt.be/api/lists?parent_lid=840
-  $url = 'https://hitlijst.vrt.be/api/' . $apicall;
-
+  $url = 'https://hitlijst.conceptbox.be/api/' . $apicall;
+  var_dump($url);
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, $url);
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
@@ -85,4 +86,16 @@ function getHitlijstData($apicall){
   }
   curl_close($ch);
   return json_decode($result);
+}
+
+function last_friday($date) {
+  if (!is_numeric($date))
+    $date = strtotime($date);
+  if (date('w', $date) == 5)
+    return $date;
+  else
+    return strtotime(
+      'last friday',
+      $date
+    );
 }
