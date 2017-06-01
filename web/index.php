@@ -39,7 +39,7 @@ header("Pragma: no-cache");
                         </fieldset>
                         <fieldset class="form-group">
                             <label for="input2">Dag <span class="inputname"></span>, in welk jaar ben je geboren?</label>
-                            <input type="text" class="form-control" id="input2" />
+                            <input type="text" class="form-control" id="year" />
                         </fieldset>
                         <fieldset class="form-group">
                             <label for="maand">En in welke maand?</label>
