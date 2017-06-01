@@ -50,7 +50,7 @@ if(isset($_GET['share'])) {
   <meta name="description" content="<?php echo $first_song->title; ?> stond op 1 toen ik geboren werd">
   <meta name="og:description" content="Ontdek ook jouw top30 geboorteplaat">
   <meta name="og:title" content="<?php echo $first_song->title; ?> stond op 1 toen ik geboren werd">
-  <meta name="og:image" content="<?php echo $first_song->title; ?> stond op 1 toen ik geboren werd">
+  <meta name="og:image" content="/img/FB-share-img.jpg">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet"
