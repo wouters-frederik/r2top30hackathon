@@ -32,22 +32,10 @@
             }
             else {
                 $("#step" + i).hide();
-                createPrevButton(i);
                 createNextButton(i);
+                createPrevButton(i);
             }
         });
-
-        function createPrevButton(i) {
-            var stepName = "step" + i;
-            $("#" + stepName + "commands").append("<a href='#' id='" + stepName + "Prev' class='navbtn prev'><i class='fa fa-arrow-left'></i> Vorige stap</a>");
-
-            $("#" + stepName + "Prev").bind("click", function(e) {
-                $("#" + stepName).hide();
-                $("#step" + (i - 1)).show();
-                $(submmitButtonName).hide();
-                selectStep(i - 1);
-            });
-        }
 
         function createNextButton(i) {
             var stepName = "step" + i;
@@ -59,6 +47,18 @@
                 if (i + 2 == count)
                     $(submmitButtonName).show();
                 selectStep(i + 1);
+            });
+        }
+
+        function createPrevButton(i) {
+            var stepName = "step" + i;
+            $("#" + stepName + "commands").append("<a href='#' id='" + stepName + "Prev' class='navbtn prev'><i class='fa fa-arrow-left'></i> Vorige stap</a>");
+
+            $("#" + stepName + "Prev").bind("click", function(e) {
+                $("#" + stepName).hide();
+                $("#step" + (i - 1)).show();
+                $(submmitButtonName).hide();
+                selectStep(i - 1);
             });
         }
 

@@ -1,14 +1,22 @@
 body {
-  background: #e4e7e0;
+  background: #404040;
   color: #404040; }
-  body.detail {
-    background: #404040; }
-    body.detail > .container {
-      background: #eee;
-      padding: 30px;
-      margin: 50px auto; }
-      body.detail > .container > .row {
-        margin: 0 0 30px; }
+  body > .container {
+    background: #eee;
+    padding: 30px;
+    margin: 50px auto; }
+    body > .container > .row {
+      margin: 0 0 30px; }
+  body.index > .container {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    width: calc(100vw - 100px);
+    height: calc(100vh - 100px);
+    margin: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center; }
 
 .header-top {
   display: flex;
@@ -52,12 +60,15 @@ fieldset > .form-control {
   fieldset > .form-control:focus {
     box-shadow: none; }
 fieldset > .stepbox--nav {
-  float: right;
+  width: 100%;
   margin: 20px 0 0;
   font-size: 16px; }
-  fieldset > .stepbox--nav > * {
-    margin-left: 20px;
-    color: orangered; }
+  fieldset > .stepbox--nav .navbtn.next {
+    color: orangered;
+    float: right; }
+  fieldset > .stepbox--nav .navbtn.prev {
+    color: #808080;
+    float: left; }
 
 .detail .row.content {
   position: relative; }
