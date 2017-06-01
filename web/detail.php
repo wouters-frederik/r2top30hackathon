@@ -47,7 +47,7 @@ $user['birthday'] = date('d / m / Y', $user['geboortedatum']);
 	<body class="detail">
 		<div class="container">
       <div class="row header-top">
-        <div class="datum">1 juni 2017</div>
+        <div class="datum"><?php echo $user['birthday']; ?></div>
         <?php echo '<div>';?>
         <?php echo '<a href="https://www.facebook.com/sharer/sharer.php?u=/detail.php?id=1">Deel op Facebook</a>';?>
         <?php echo '<a href="https://twitter.com/home?status=https%3A//master-7rqtwti-coio4nyeqlhz4.eu.platform.sh/detail.php?id=1">Deel op Twitter</a>';?>
