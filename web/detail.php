@@ -22,14 +22,16 @@ $user['birthday'] = date('d / m / Y', $user['geboortedatum']);
 // KNOP to frontpage.
 
 
+$from = last_friday($user['geboortedatum']);
+$krantdate = date('Y/m/d',$user['geboortedatum']);
+$to = strtotime('+ 6 days', $from);
 
+$hitlijst = getHitlijstData('lists?parent_lid=3288&air_date_from='.$from.'&air_date_to=' . $to);
+$pos = 0;
+$aftellijst = getHitlijstData('lists/' . $hitlijst->$pos->lid);
+$first_song = $aftellijst->songs[0];
+//var_dump($first_song->youtube_url);
 
-//echo Geboortedatum
-
-
-
-
-//Load id
 
 ?>
 <!DOCTYPE html>
@@ -49,8 +51,8 @@ $user['birthday'] = date('d / m / Y', $user['geboortedatum']);
       <div class="row header-top">
         <div class="datum"><?php echo $user['birthday']; ?></div>
         <?php echo '<div>';?>
-        <?php echo '<a href="https://www.facebook.com/sharer/sharer.php?u=/detail.php?id=1">Deel op Facebook</a>';?>
-        <?php echo '<a href="https://twitter.com/home?status=https%3A//master-7rqtwti-coio4nyeqlhz4.eu.platform.sh/detail.php?id=1">Deel op Twitter</a>';?>
+        <?php echo '<a href="https://www.facebook.com/sharer/sharer.php?u='. urlencode($cur_url).'">Deel op Facebook</a>';?>
+        <?php echo '<a href="https://twitter.com/home?status='. urlencode($cur_url).'">Deel op Twitter</a>';?>
         <?php echo '</div>';?>
       </div>
       <div class="row header">
@@ -60,36 +62,61 @@ $user['birthday'] = date('d / m / Y', $user['geboortedatum']);
 
       <div class="row content">
         <?php
-        $from = last_friday($user['geboortedatum']);
-        $krantdate = date('Y/m/d',$user['geboortedatum']);
-        $to = strtotime('+ 6 days', $from);
 
-        $hitlijst = getHitlijstData('lists?parent_lid=872&air_date_from='.$from.'&air_date_to=' . $to);
-        $pos = 0;
         ?>
-        <?php $hitlijst = getHitlijstData('lists?parent_lid=840');?>
-        <?php $hitlijst->$pos->lid = 841;?>
-        <?php $aftellijst = getHitlijstData('lists/' . $hitlijst->$pos->lid);?>
-        <?php $first_song = $aftellijst->songs[0];?>
+
+        <?php ?>
+
         <?php echo '<div class="songname-artist">';?>
           <?php echo '<div class="songname">' . $first_song->title . '</div>';?>
           <?php echo '<div class="artist">van ' . $first_song->name . '</div>';?>
           <small>stond op 1 in de Radio 2 Top 30 op de dag dat jij geboren bent!</small>
         <?php echo '</div>';?>
-        <div class="mainvideobox"><iframe class="mainvideo" src="https://www.youtube.com/embed/x76VEPXYaI0" frameborder="0" allowfullscreen></iframe></div>
+        <?php
+        if(isset($first_song->youtube_url))
+        {?>
+          <div class="mainvideobox"><iframe class="mainvideo" src="<?php echo $first_song->youtube_url; ?>" frameborder="0" allowfullscreen></iframe></div>
+        <?php
+        }else{
+          if(isset($first_song->audio_url)) {
+            ?>
+            <audio controls>
+              <source src="<?php echo $first_song->audio_url; ?>" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+        <?php
+          }
+
+        }
+        ?>
+        <center><?php echo '<a href="https://www.facebook.com/sharer/sharer.php?u='. urlencode($cur_url).'">Deel op Facebook</a>';?></center>      
       </div>
       <div class="row content-bottom">
         <div class="content-bottom-left">
-          <h2>Dit was de voorpagina op <?php echo $user['birthday']; ?></h2>
-          <img src="http://hv.persgroep.be/hv/web/hln/papers/<?php echo $krantdate;?>/HIGHRES">
+          <h2>Dit was de voorpagina op <?php echo $user['birthday']; ?>.</h2>
+          <center><img src="http://hv.persgroep.be/hv/web/hln/papers/<?php echo $krantdate;?>/HIGHRES"></center>
         </div>
         <div class="content-bottom-right">
-          <h2 class="sidebar--title">De Radio 2 Top 30 op <?php echo $user['birthday']; ?></h2>
-          <?php echo '<ol>';
-            foreach($aftellijst->songs as $song) {
-              echo '<li>'.$song->title . ' - ' .$song->name. '</li>';
+          <h2 class="sidebar--title">Dit was de top 30 op <?php echo date('d M Y',$aftellijst->data->air_date); ?></h2>
+          <?php
+          echo '<ol>';
+          foreach($aftellijst->songs as $song) {
+            //var_dump($first_song);
+            echo '<li>';
+            if (isset($first_song->image_url)) {
+              echo '<img src="'.$first_song->image_url.'">';
             }
-            echo '</ol>';?>
+
+            echo $song->title . ' - ' .$song->name;
+
+            echo ' -  <a href="'.$first_song->spotigy_id.'">Spotify</a>';
+            echo ' <a href="'.$first_song->itunes_buy.'">Itunes</a>';
+            echo ' <a href="'.$first_song->youtube_url.'">Youtube</a>';
+
+            echo '</li>';
+          }
+          echo '</ol>';
+          ?>
         </div>
       </div>
     </div>
