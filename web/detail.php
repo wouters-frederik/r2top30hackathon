@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 include 'settings.php';
@@ -128,13 +129,14 @@ $first_song = $aftellijst->songs[0];
 
 
   </div>
-  <div class="row content">
-    <h2>Dit was de voorpagina op <?php echo $user['birthday']; ?>.</h2>
-    <center><img
-        src="http://hv.persgroep.be/hv/web/hln/papers/<?php echo $krantdate; ?>/HIGHRES">
-    </center>
-  </div>
-  <div class="row content">
+  <div class="row content-bottom">
+    <div class="content-bottom-left">
+      <h2>Dit was de voorpagina op <?php echo $user['birthday']; ?>.</h2>
+      <center><img
+          src="http://hv.persgroep.be/hv/web/hln/papers/<?php echo $krantdate; ?>/HIGHRES">
+      </center>
+    </div>
+    <div class="content-bottom-right">
 
     <h2>Dit was de top 30
       op <?php echo date('d M Y', $aftellijst->data->air_date); ?></h2>
@@ -173,7 +175,7 @@ $first_song = $aftellijst->songs[0];
     }
     echo '</ol>';
     ?>
-
+    </div>
 
   </div>
 

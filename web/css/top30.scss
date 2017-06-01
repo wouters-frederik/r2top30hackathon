@@ -1,6 +1,7 @@
 body {
   background: #404040;
   color: #404040;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   > .container {
     background: #eee;
     padding: 30px;
@@ -22,6 +23,11 @@ body {
       justify-content: center;
     }
   }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 .header-top {
@@ -55,7 +61,6 @@ body {
 #steps {
   display: none;
 }
-
 
 fieldset {
   > label {
@@ -97,6 +102,27 @@ fieldset {
     > * {
       display: flex;
       flex-flow: column nowrap;
+    }
+  }
+  .row.content-bottom {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    .content-bottom-left {
+      width: 60%;
+    }
+    .content-bottom-right {
+      width: 35%;
+      padding: 30px;
+      margin-left: 5%;
+      background: #e1e4e2;
+      .sidebar--title {
+        margin: 0 0 20px;
+        font-size: 20px;
+      }
+      ol {
+        padding-left: 20px;
+      }
     }
   }
   .songname-artist {
