@@ -83,7 +83,23 @@ fieldset {
     > * {
       display: flex;
       flex-flow: column nowrap;
-
+    }
+  }
+  .songname-artist {
+    background: #ccc;
+    padding: 50px;
+    text-align: center;
+    margin: 0 0 30px;
+    .songname {
+      font-family: 'Anton', sans-serif;
+      text-transform: uppercase;
+      font-size: 50px;
+      margin: 25px 0 0; 
+    }
+    .artist {
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
   }
   .mainvideobox {
