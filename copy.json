@@ -45,7 +45,7 @@
     },
     {
         "id": "restultaat__krant",
-        "value": "Dit waren de krantenkoppen op {dd/mm/yyyy}."
+        "value": "Dit was de voorpagina van de krant op {dd/mm/yyyy}."
     },
     {
         "id": "resultaat__sharecta",
