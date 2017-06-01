@@ -12,7 +12,9 @@ jQuery(document).ready(function($){
     $('#mainform input,#mainform select').keydown(function (e) {
         if (e.keyCode == 13) {
             e.preventDefault();
+            $
             return false;
+
         }
     });
 });

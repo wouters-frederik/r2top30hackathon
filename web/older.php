@@ -16,14 +16,18 @@ if ($user == FALSE) {
   echo 'oei die persoon hebben we niet gevonden. <a href="index.php">Proef zelf eens van ons spelletje.</a>';
   die();
 }
-
-$user['birthday'] = date('d / m / Y', $user['geboortedatum']);
+if (!isset($_GET['hoeveeljaar'])) {
+  $_GET['hoeveeljaar'] = 18;
+}
+$leeftijd = $_GET['hoeveeljaar'];
+$selecteerleeftijd  = strtotime('+ ' . $leeftijd . ' YEARS', $user['geboortedatum']);
+$user['birthday'] = date('d / m / Y', $selecteerleeftijd);
 //no id = Oei, probeer het zelf eens
 // KNOP to frontpage.
 
 
-$from = last_friday($user['geboortedatum']);
-$krantdate = date('Y/m/d', $user['geboortedatum']);
+$from = last_friday($selecteerleeftijd);
+$krantdate = date('Y/m/d', $selecteerleeftijd);
 $to = strtotime('+ 6 days', $from);
 
 $hitlijst = getHitlijstData('lists?parent_lid=3288&air_date_from=' . $from . '&air_date_to=' . $to);
@@ -40,10 +44,10 @@ $first_song = $aftellijst->songs[0];
   <title><?php echo $first_song->title; ?> stond op 1 toen ik geboren werd</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="description" content="<?php echo $first_song->title; ?> stond op 1 toen ik geboren werd">
+  <meta name="description" content="<?php echo $first_song->title; ?> stond op 1 toen ik <?php echo $leeftijd; ?> werd">
   <meta name="og:description" content="Ontdek ook jouw top30 geboorteplaat">
-  <meta name="og:title" content="<?php echo $first_song->title; ?> stond op 1 toen ik geboren werd">
-  <meta name="og:image" content="<?php echo $first_song->title; ?> stond op 1 toen ik geboren werd">
+  <meta name="og:title" content="<?php echo $first_song->title; ?> stond op 1 toen ik <?php echo $leeftijd; ?> werd">
+  <meta name="og:image" content="<?php echo $first_song->title; ?> stond op 1 toen ik <?php echo $leeftijd; ?> werd">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet"
@@ -99,7 +103,7 @@ $first_song = $aftellijst->songs[0];
     <?php echo '<div class="songname-artist">'; ?>
     <?php echo '<div class="songname">' . $first_song->title . '</div>'; ?>
     <?php echo '<div class="artist">van ' . $first_song->name . '</div>'; ?>
-    <small>stond op 1 in de Radio 2 Top 30 op de dag dat jij geboren bent!
+    <small>stond op 1 in de Radio 2 Top 30 op de dag dat je <?php echo $leeftijd; ?> bent!
     </small>
     <?php echo '</div>'; ?>
 
