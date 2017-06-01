@@ -141,7 +141,7 @@ if(isset($_GET['share'])) {
     <?php
     if(isset($_GET['share'])) { ?>
     <center><a href="/">Ontdek jouw geboorteplaat!</a></center>
-      <?
+      <?php
     }else{
     ?>
 
@@ -164,10 +164,10 @@ if(isset($_GET['share'])) {
       </center>
 
 
-      <?
+      <?php
     }
     ?>
-    
+
 
   </div>
   <div class="row content-bottom">
@@ -222,4 +222,4 @@ if(isset($_GET['share'])) {
 </div>
 </body>
 
-  
+
