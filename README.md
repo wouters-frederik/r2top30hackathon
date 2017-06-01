@@ -2,10 +2,7 @@
 radio2 top30 hackathon
 
 # todo 
-- Plan van aanpak samen opstellen
-- MVP features vaststellen
-- Wireframe(s) maken?
-- Swarmen?
+- Testen opzetten
 
 # Requirements
 - code op github (goed voor developer online CV)
