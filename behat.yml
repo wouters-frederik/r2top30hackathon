@@ -6,13 +6,15 @@ default:
         - FeatureContext
         - behatch:context:browser
     R2TOP30:
-      paths: [ %paths.base%/r2top30 ]
+      paths: [ %paths.base%/features/r2top30 ]
       contexts:
+        - Behat\MinkExtension\Context\MinkContext
         - FeatureContext
         - behatch:context:browser
     HITLIJST:
-      paths: [ %paths.base%/hitlijst ]
+      paths: [ %paths.base%/features/hitlijst ]
       contexts:
+        - Behat\MinkExtension\Context\MinkContext
         - FeatureContext
         - behatch:context:json
   gherkin:
