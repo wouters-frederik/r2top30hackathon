@@ -4,7 +4,7 @@ jQuery(document).ready(function($){
         submitButton: '#submitbutton'
     });
 
-    $('.input1').change(function(){
-        $('.inputname').html($('.input1').val());
+    $('#input1').change(function(){
+        $('.inputname').html($('#input1').val());
     })
 });

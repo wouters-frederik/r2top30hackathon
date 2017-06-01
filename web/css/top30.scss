@@ -1,5 +1,6 @@
 body {
   background: #e4e7e0;
+  color: #404040;
 }
 
 .header-top {
@@ -13,6 +14,9 @@ body {
 }
 
 .header {
+  padding: 0 0 30px;
+  margin: 0 0 30px;
+  border-bottom: 2px solid #ccc;
   svg {
     float: left;
     margin: 0 20px 0 0;
@@ -29,4 +33,30 @@ body {
 
 #steps {
   display: none;
+}
+
+fieldset {
+  > label {
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 100;
+  }
+  > .form-control {
+    border: 0;
+    background: transparent;
+    border-radius: 0;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    font-size: 20px;
+    box-shadow: none;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  > .stepbox--nav {
+    float: right;
+    margin: 20px 0 0;
+    font-size: 16px;
+  }
 }

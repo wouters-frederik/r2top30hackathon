@@ -38,7 +38,7 @@ header("Pragma: no-cache");
                             <input type="text" class="form-control" id="input1" />
                         </fieldset>
                         <fieldset class="form-group">
-                            <label for="input2">Dag <span class="inputname">, in welk jaar ben je geboren?</label>
+                            <label for="input2">Dag <span class="inputname"></span>, in welk jaar ben je geboren?</label>
                             <input type="text" class="form-control" id="input2" />
                         </fieldset>
                         <fieldset class="form-group">
