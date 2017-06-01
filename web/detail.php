@@ -22,14 +22,15 @@ $user['birthday'] = date('d / m / Y', $user['geboortedatum']);
 // KNOP to frontpage.
 
 
+$from = last_friday($user['geboortedatum']);
+$krantdate = date('Y/m/d',$user['geboortedatum']);
+$to = strtotime('+ 6 days', $from);
 
+$hitlijst = getHitlijstData('lists?parent_lid=3288&air_date_from='.$from.'&air_date_to=' . $to);
+$pos = 0;
+$aftellijst = getHitlijstData('lists/' . $hitlijst->$pos->lid);
+$first_song = $aftellijst->songs[0];
 
-//echo Geboortedatum
-
-
-
-
-//Load id
 
 ?>
 <!DOCTYPE html>
@@ -49,8 +50,8 @@ $user['birthday'] = date('d / m / Y', $user['geboortedatum']);
       <div class="row header-top">
         <div class="datum"><?php echo $user['birthday']; ?></div>
         <?php echo '<div>';?>
-        <?php echo '<a href="https://www.facebook.com/sharer/sharer.php?u=/detail.php?id=1">Deel op Facebook</a>';?>
-        <?php echo '<a href="https://twitter.com/home?status=https%3A//master-7rqtwti-coio4nyeqlhz4.eu.platform.sh/detail.php?id=1">Deel op Twitter</a>';?>
+        <?php echo '<a href="https://www.facebook.com/sharer/sharer.php?u='. urlencode($cur_url).'">Deel op Facebook</a>';?>
+        <?php echo '<a href="https://twitter.com/home?status='. urlencode($cur_url).'">Deel op Twitter</a>';?>
         <?php echo '</div>';?>
       </div>
       <div class="row header">
@@ -60,17 +61,11 @@ $user['birthday'] = date('d / m / Y', $user['geboortedatum']);
 
       <div class="row content">
         <?php
-        $from = last_friday($user['geboortedatum']);
-        $krantdate = date('Y/m/d',$user['geboortedatum']);
-        $to = strtotime('+ 6 days', $from);
 
-        $hitlijst = getHitlijstData('lists?parent_lid=872&air_date_from='.$from.'&air_date_to=' . $to);
-        $pos = 0;
         ?>
-        <?php $hitlijst = getHitlijstData('lists?parent_lid=840');?>
-        <?php $hitlijst->$pos->lid = 841;?>
-        <?php $aftellijst = getHitlijstData('lists/' . $hitlijst->$pos->lid);?>
-        <?php $first_song = $aftellijst->songs[0];?>
+
+        <?php ?>
+
         <?php echo '<div class="songname-artist">';?>
           <?php echo '<div class="songname">' . $first_song->title . '</div>';?>
           <?php echo '<div class="artist">van ' . $first_song->name . '</div>';?>
@@ -90,9 +85,9 @@ $user['birthday'] = date('d / m / Y', $user['geboortedatum']);
 
 
           <?php
-  echo '<ol>';
+          echo '<ol>';
           foreach($aftellijst->songs as $song) {
-            //var_dump($song);
+
             echo '<li>'.$song->title . ' - ' .$song->name. '</li>';
           }
           echo '</ol>';
