@@ -47,5 +47,8 @@ fieldset > .stepbox--nav {
   float: right;
   margin: 20px 0 0;
   font-size: 16px; }
+  fieldset > .stepbox--nav > * {
+    margin-left: 20px;
+    color: orangered; }
 
 /*# sourceMappingURL=top30.css.map */

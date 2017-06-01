@@ -35,6 +35,7 @@ body {
   display: none;
 }
 
+
 fieldset {
   > label {
     width: 100%;
@@ -58,5 +59,9 @@ fieldset {
     float: right;
     margin: 20px 0 0;
     font-size: 16px;
+    > * {
+      margin-left: 20px;
+      color: orangered;
+    }
   }
 }
