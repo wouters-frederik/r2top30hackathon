@@ -128,8 +128,8 @@ $first_song = $aftellijst->songs[0];
 
     }
     ?>
-    <center><?php echo '<a href="https://www.facebook.com/sharer/sharer.php?u=' . urlencode($cur_url) . '">Deel op Facebook</a>'; ?></center>
-    <center>
+    <center class="fbsharebox"><?php echo '<a href="https://www.facebook.com/sharer/sharer.php?u=' . urlencode($cur_url) . '">Deel op Facebook</a>'; ?></center>
+    <center class="olderbox">
       <form METHOD="GET" ACTION="/older.php" >
         Wat stond er op 1 toen je
         <input type="hidden" name="id" value="<?php echo $_GET['id'];?>">
@@ -141,8 +141,8 @@ $first_song = $aftellijst->songs[0];
           <option>40</option>
           <option>50</option>
         </select>
-        was?
-        <input type="submit" value="Ontdet het hier">
+        jaar was?<br>
+        <input class="oldersubmit" type="submit" value="Ontdek het hier!">
       </form>
     </center>
 
