@@ -40,7 +40,11 @@ $first_song = $aftellijst->songs[0];
   <title>R2Hackathon</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="description" content="Demo project with jQuery">
+  <meta name="description" content="<?php echo $first_song->title; ?> stond op 1 toen ik geboren werd">
+  <meta name="og:description" content="Ontdek ook jouw top30 geboorteplaat">
+  <meta name="og:title" content="<?php echo $first_song->title; ?> stond op 1 toen ik geboren werd">
+  <meta name="og:image" content="<?php echo $first_song->title; ?> stond op 1 toen ik geboren werd">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -124,55 +128,50 @@ $first_song = $aftellijst->songs[0];
 
 
   </div>
-  <div class="row content">
-    <h2>Dit was de voorpagina op <?php echo $user['birthday']; ?>.</h2>
-    <center><img
-        src="http://hv.persgroep.be/hv/web/hln/papers/<?php echo $krantdate; ?>/HIGHRES">
-    </center>
-  </div>
-  <div class="row content">
+  <div class="row content-bottom">
+    <div class="content-bottom-left">
+      <h2>Dit was de voorpagina op <?php echo $user['birthday']; ?>.</h2>
+      <center><img
+          src="http://hv.persgroep.be/hv/web/hln/papers/<?php echo $krantdate; ?>/HIGHRES">
+      </center>
+    </div>
+    <div class="content-bottom-right">
+      <h2 class="sidebar--title">Dit was de top 30
+        op <?php echo date('d M Y', $aftellijst->data->air_date); ?></h2>
 
-    <h2>Dit was de top 30
-      op <?php echo date('d M Y', $aftellijst->data->air_date); ?></h2>
 
+      <?php
+      echo '<ol>';
+      foreach ($aftellijst->songs as $song) {
+        echo '<li>';
+        if (isset($song->image_url)) {
+          echo '<img src="' . $song->image_url . '">';
+        }
 
-    <?php
-    echo '<ol>';
-    foreach ($aftellijst->songs as $song) {
-      //var_dump($first_song);
-      echo '<li>';
-      if (isset($song->image_url)) {
-        echo '<img src="' . $song->image_url . '">';
+        echo $song->title . ' - ' . $song->name;
+
+        if (!empty($song->spotify_id)) {
+          echo ' -  <a href="' . $song->spotify_id . '">Spotify</a>';
+        }
+        if (!empty($song->itunes_buy)) {
+          echo ' <a href="' . $song->itunes_buy . '">Itunes</a>';
+        }
+        if (!empty($song->youtube_url)) {
+          echo ' <a href="' . $song->youtube_url . '">Youtube</a>';
+        }
+        if(!empty($song->youtube_url)) {
+          echo '<div><iframe class="mainvideo" src="'. $song->youtube_url. '"
+                  frameborder="0" allowfullscreen></iframe></div>';
+        }
+
+        echo '</li>';
       }
-
-      echo $song->title . ' - ' . $song->name;
-
-//      if(!empty($song->audio_url)) {
-//        echo '<audio controls><source src="'. $song->audio_url.'" type="audio/mpeg">Your browser does not support the audio element.</audio>';
-//      }
-
-      if (!empty($song->spotify_id)) {
-        echo ' -  <a href="' . $song->spotify_id . '">Spotify</a>';
-      }
-      if (!empty($song->itunes_buy)) {
-        echo ' <a href="' . $song->itunes_buy . '">Itunes</a>';
-      }
-      if (!empty($song->youtube_url)) {
-        echo ' <a href="' . $song->youtube_url . '">Youtube</a>';
-      }
-      if(!empty($song->youtube_url)) {
-        echo '<div><iframe class="mainvideo" src="'. $song->youtube_url. '"
-                frameborder="0" allowfullscreen></iframe></div>';
-      }
-
-      echo '</li>';
-    }
-    echo '</ol>';
-    ?>
+      echo '</ol>';
+      ?>
 
 
-  </div>
-
+    </div>
+    </div>
 </div>
 </body>
 
