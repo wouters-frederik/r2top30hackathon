@@ -98,11 +98,6 @@ if(isset($_GET['share'])) {
   </div>
 
   <div class="row content">
-    <?php
-
-    ?>
-
-    <?php ?>
 
     <?php echo '<div class="songname-artist">'; ?>
     <?php echo '<div class="songname">' . $first_song->title . '</div>'; ?>
@@ -136,7 +131,7 @@ if(isset($_GET['share'])) {
     <?php
     if(isset($_GET['share'])) { ?>
       <a href="/">Ontdek jouw geboorteplaat!</a>
-      <?
+      <?php
     }else{
     ?>
 
@@ -158,7 +153,7 @@ if(isset($_GET['share'])) {
         <input type="submit" value="Ontdet het hier">
       </form>
     </center>
-      <?
+      <?php
     }
     ?>
 

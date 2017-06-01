@@ -37,6 +37,8 @@
             }
         });
 
+        
+
         function createNextButton(i) {
             var stepName = "step" + i;
             $("#" + stepName + "commands").append("<a href='#' id='" + stepName + "Next' class=' navbtn next'>Volgende stap <i class='fa fa-arrow-right'></i></a>");
@@ -44,10 +46,21 @@
             $("#" + stepName + "Next").bind("click", function(e) {
                 $("#" + stepName).hide();
                 $("#step" + (i + 1)).show();
-                if (i + 2 == count)
+                if (i + 2 == count) {
                     $(submmitButtonName).show();
+                } 
                 selectStep(i + 1);
             });
+
+            $("#" + stepName + "commands").prev().on("keydown", function (e) {
+                if (e.keyCode == 13) {
+                    console.log('index',i);
+                    $("#step" + i + "Next").trigger('click');
+                    return false;
+                }
+            });
+
+
         }
 
         function createPrevButton(i) {
