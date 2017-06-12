@@ -1,0 +1,141 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            <div class="Form">
+
+
+
+                <form class="step1">
+                    <div class="">
+                        Hallo, Wat is je naam?
+                    </div>
+                    <div class="">
+                    <input type="text" value="" placeholder="naam" name="name" class="name">
+                    </div>
+                    <div class="">
+                    <input type="submit" value="Ga verder">
+                    </div>
+                </form>
+
+
+
+                <form class="step2" style="display:none">
+                    <div class="">
+                        Hoi <span class="naam"></span>, Wat is je geboortedatum?
+                    </div>
+                    <div class="">
+                        <input type="birthday" value="" placeholder="dd/mm/yyyy" name="birthday" class="birthday">
+                    </div>
+                    <div class="">
+                        <input type="submit" value="Ga verder">
+                    </div>
+                </form>
+
+
+                <form class="step3" style="display:none">
+                    <div class="">
+                        Van <span class="year">83</span>, dat was een goed jaar!<br>
+                        En wat is je emailadres? ('t is voor een mailtje op je verjaardag).
+
+                    </div>
+                    <div class="">
+                        <input type="email" value="" placeholder="" name="email" class="email">
+                    </div>
+                    <div class="">
+                        <input type="submit" value="Ga verder">
+                    </div>
+                </form>
+
+                <div style="display:none">
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    {{ form_end(form) }}
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+    body { background: #F5F5F5; font: 18px/1.5 sans-serif; }
+    h1, h2 { line-height: 1.2; margin: 0 0 .5em; }
+    h1 { font-size: 36px; }
+    h2 { font-size: 21px; margin-bottom: 1em; }
+    p { margin: 0 0 1em 0; }
+    a { color: #0000F0; }
+    a:hover { text-decoration: none; }
+    code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
+    #wrapper { background: #FFF; margin: 1em auto; max-width: 800px; width: 95%; }
+    #container { padding: 2em; }
+    #welcome, #status { margin-bottom: 2em; }
+    #welcome h1 span { display: block; font-size: 75%; }
+    #icon-status, #icon-book { float: left; height: 64px; margin-right: 1em; margin-top: -4px; width: 64px; }
+    #icon-book { display: none; }
+
+    @media (min-width: 768px) {
+        #wrapper { width: 80%; margin: 2em auto; }
+        #icon-book { display: inline-block; }
+        #status a, #next a { display: block; }
+
+        @-webkit-keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+        @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+        .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
+    }
+</style>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+
+    $(document).ready(function(){
+        console.log('born ready');
+        $('.step1 .name').change(function(){
+            var $this = $(this);
+            var $val = $this.val();
+            $('#form_name').val($val);
+            $('.step2 span.naam').html($val);
+        });
+        $('.step1').submit(function(event){
+            $('.step1').hide();
+            $('.step2').show();
+            $('.step2 .birthday').focus();
+            event.preventDefault();
+            return false;
+        });
+//        $( ".step2 .birthday" ).datepicker({
+//            changeMonth: true,
+//            changeYear: true,
+//            dateFormat: 'dd/mm/yy'
+//        });
+        $('.step2 .birthday').change(function(){
+            var $this = $(this);
+            var $val = $this.val();
+            $('#form_birthDate').val($val);
+        });
+        $('.step2').submit(function(event){
+            $('.step2').hide();
+            $('.step3').show();
+            $('.step3 .email').focus();
+            event.preventDefault();
+            return false;
+        });
+        $('.step3 .email').change(function(){
+            var $this = $(this);
+            var $val = $this.val();
+            $('#form_email').val($val);
+        });
+        $('.step3').submit(function(event){
+            $('.step3').hide();
+            $('form[name=form]').trigger('submit');
+            event.preventDefault();
+            return false;
+        });
+    });
+</script>
+{% endblock %}
